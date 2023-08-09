@@ -64,11 +64,6 @@ pmset -g log | grep -e "Sleep.*due to" -e "Wake.*due to"
 
 另外，SSDT-GPRW.aml 的补丁不对，。 需要现在 config.plist, 把 GPRW 全局替换成 XPRW
 
-```
-// In config ACPI, GPRW to XPRW
-// Find:     47505257 02
-// Replace:  58505257 02
-```
 
 
 2. disable usb wake up in bios
