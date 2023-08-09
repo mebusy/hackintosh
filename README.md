@@ -19,3 +19,70 @@ Ref: https://www.tonymacx86.com/threads/ssdt-gpu-graphics-card-injection.183354/
     - search `Device (NPE3)`
     - Take a note of the device path at the far bottom left corner of the app but discard "DSDT" 
         - `_SB.PCI0.NPE3`
+
+
+# ACPI 热补丁
+
+https://xstar-dev.github.io/hackintosh_advanced/ACPI_Hotpatch_Overview.html#%E4%BB%80%E4%B9%88%E6%98%AF-acpi-%E7%83%AD%E8%A1%A5%E4%B8%81
+
+
+# OC-Little
+
+英文感觉更全
+
+https://github.com/5T33Z0/OC-Little-Translated/blob/main/04_Fixing_Sleep_and_Wake_Issues/060D_Instant_Wake_Fix/README.md
+
+中文版
+
+https://github.com/daliansky/OC-little/blob/master/12-060D%E8%A1%A5%E4%B8%81/README.md
+
+
+# Dell 5480 Sleep
+
+try
+
+
+1. XDCI (Extensible Device Controller Interface)
+
+```
+pmset -g log | grep -e "Sleep.*due to" -e "Wake.*due to"
+
+看是不是 due to XDCI \ HID 
+
+如果是， 试试 在 config.plist 中 加入
+
+0A6D0A03 -> 00000000
+0A6D0A04 -> 00000000
+```
+
+
+另外，SSDT-GPRW.aml 的补丁不对，。 需要现在 config.plist, 把 GPRW 全局替换成 XPRW
+
+```
+// In config ACPI, GPRW to XPRW
+// Find:     47505257 02
+// Replace:  58505257 02
+```
+
+
+2. disable usb wake up in bios
+
+3. 
+
+
+PBTN related
+
+
+```
+PBTN
+  BTNV
+
+HIDD
+  BTNL
+
+LPC总线（Low pin count Bus）
+  SWAK
+
+HECI   Intel英特尔Management Engine Interface(HECI)
+  _DSM
+```
