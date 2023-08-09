@@ -1,5 +1,11 @@
 # hackintosh
 
+## docs
+
+[hackintosh](./docs/hackintosh.md)
+
+[ASL](hack_asl.md)
+
 ## Find Device Path in DSDT
 
 Ref: https://www.tonymacx86.com/threads/ssdt-gpu-graphics-card-injection.183354/
