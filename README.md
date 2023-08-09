@@ -43,6 +43,11 @@ https://github.com/5T33Z0/OC-Little-Translated/blob/main/04_Fixing_Sleep_and_Wak
 https://github.com/daliansky/OC-little/blob/master/12-060D%E8%A1%A5%E4%B8%81/README.md
 
 
+# 定制usb
+
+https://zhuanlan.zhihu.com/p/68338188
+
+
 # Dell 5480 Sleep
 
 try
