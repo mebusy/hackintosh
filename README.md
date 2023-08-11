@@ -6,6 +6,9 @@
 
 [ASL](hack_asl.md)
 
+[usb定制](./docs/usbMap.md)
+
+
 ## Find Device Path in DSDT
 
 Ref: https://www.tonymacx86.com/threads/ssdt-gpu-graphics-card-injection.183354/
@@ -43,52 +46,3 @@ https://github.com/5T33Z0/OC-Little-Translated/blob/main/04_Fixing_Sleep_and_Wak
 https://github.com/daliansky/OC-little/blob/master/12-060D%E8%A1%A5%E4%B8%81/README.md
 
 
-# 定制usb
-
-https://zhuanlan.zhihu.com/p/68338188
-
-
-# Dell 5480 Sleep
-
-try
-
-
-1. XDCI (Extensible Device Controller Interface)
-
-```
-pmset -g log | grep -e "Sleep.*due to" -e "Wake.*due to"
-
-看是不是 due to XDCI \ HID 
-
-如果是， 试试 在 config.plist 中 加入
-
-0A6D0A03 -> 00000000
-0A6D0A04 -> 00000000
-```
-
-
-另外，SSDT-GPRW.aml 的补丁不对，。 需要现在 config.plist, 把 GPRW 全局替换成 XPRW
-
-
-
-2. disable usb wake up in bios
-
-3. 
-
-
-PBTN related
-
-
-```
-PBTN
-  BTNV
-
-HIDD
-  BTNL
-
-LPC总线（Low pin count Bus）
-  SWAK
-
-HECI   Intel英特尔Management Engine Interface(HECI)
-  _DSM
-```
