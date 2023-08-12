@@ -182,7 +182,26 @@ rm -R com.apple.parsecd
 launchctl unload -w  /System/Library/LaunchAgents/com.apple.triald.plist
 launchctl unload -w  /System/Library/LaunchAgents/com.apple.proactiveeventtrackerd.plist
 
-rm -R com.apple.proactive.eventtracker
+rm -R ~/Library/Caches/com.apple.proactive.eventtracker
+```
+
+## Ventura , some of above methods failed
+
+```bash
+rm -rf ~/Library/Caches/com.apple.parsecd
+rm -rf  ~/Library/Caches/com.apple.proactive.eventtracker
+
+# need `csrutil disable`
+sudo launchctl bootout system /System/Library/LaunchDaemons/com.apple.triald.system.plist
+
+# can not find and disable following services
+$ launchctl list|egrep -i track
+642	0	com.apple.UsageTrackingAgent
+994	0	com.apple.proactiveeventtrackerd
+
+# cancel apple scheduled task
+$ pmset -g sched
+$ sudo pmset schedule cancelall
 ```
 
 
