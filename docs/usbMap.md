@@ -57,7 +57,7 @@ https://www.youtube.com/watch?v=-bFuv77zNOY
 
 [USBToolBox kext](https://github.com/USBToolBox/kext/releases) (似乎不需要)
 
-[WinPE](https://zfile.edgeless.top/Socket) ,  安装盘格式化为 MS-DOS(FAT), 主引导记录
+[WinPE](https://zfile.edgeless.top/Socket) ,  安装盘格式化为 MS-DOS(FAT), GPT (方便安装其它系统，如 Fedora)。 
 
 
 

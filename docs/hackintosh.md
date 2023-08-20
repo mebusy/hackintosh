@@ -193,6 +193,8 @@ rm -rf  ~/Library/Caches/com.apple.proactive.eventtracker
 
 # need `csrutil disable`
 sudo launchctl bootout system /System/Library/LaunchDaemons/com.apple.triald.system.plist
+# ?
+sudo launchctl bootout system /System/Library/LaunchDaemons/com.apple.apsd.plist
 
 # can not find and disable following services
 $ launchctl list|egrep -i track
